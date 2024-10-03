@@ -1,9 +1,6 @@
 package com.bl.javastreams;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -58,6 +55,22 @@ public class JavaStreamsDemo {
             System.out.println("The maximum even number is: " + maxEvenNumber.get());
         } else {
             System.out.println("No even numbers found for maximum.");
+        }
+
+        // Calculate the sum of the numbers
+        int sum = numbers.stream().mapToInt(Integer::intValue).sum(); // Using mapToInt to sum
+
+        // Calculate the average of the numbers
+        OptionalDouble average = numbers.stream().mapToInt(Integer::intValue).average(); // Using mapToInt to calculate average
+
+        // Display the sum
+        System.out.println("The sum of the numbers is: " + sum);
+
+        // Display the average
+        if (average.isPresent()) {
+            System.out.println("The average of the numbers is: " + average.getAsDouble());
+        } else {
+            System.out.println("No numbers found to calculate average.");
         }
 
     }

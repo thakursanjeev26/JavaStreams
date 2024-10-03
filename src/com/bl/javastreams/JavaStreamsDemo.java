@@ -23,6 +23,7 @@ public class JavaStreamsDemo {
 
         List<Double>doubleList=numbers.stream().map(num->num*2.0).collect(Collectors.toList());
 
+        System.out.println(doubleList);
 
     }
 }

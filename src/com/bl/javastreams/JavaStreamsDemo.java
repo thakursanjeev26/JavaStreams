@@ -1,6 +1,7 @@
 package com.bl.javastreams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -35,6 +36,28 @@ public class JavaStreamsDemo {
         }
         else {
             System.out.println("No even numbers found.");
+        }
+        Optional<Integer> minEvenNumber = numbers.stream()
+                .filter(num -> num % 2 == 0) // Filter even numbers
+                .min(Comparator.naturalOrder()); // Get the minimum even number
+
+
+        Optional<Integer> maxEvenNumber = numbers.stream()
+                .filter(num -> num % 2 == 0) // Filter even numbers
+                .max(Comparator.naturalOrder()); // Get the maximum even number
+
+
+        if (minEvenNumber.isPresent()) {
+            System.out.println("The minimum even number is: " + minEvenNumber.get());
+        } else {
+            System.out.println("No even numbers found for minimum.");
+        }
+
+
+        if (maxEvenNumber.isPresent()) {
+            System.out.println("The maximum even number is: " + maxEvenNumber.get());
+        } else {
+            System.out.println("No even numbers found for maximum.");
         }
 
     }

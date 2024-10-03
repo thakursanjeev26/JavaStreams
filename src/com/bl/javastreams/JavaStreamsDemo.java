@@ -2,6 +2,7 @@ package com.bl.javastreams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,6 +28,14 @@ public class JavaStreamsDemo {
 
         List<Integer>evenNumbers=numbers.stream().filter(num->num%2==0).collect(Collectors.toList());
         System.out.println("Even Numbers"+evenNumbers);
+
+        Optional<Integer>firstEvenNumber=numbers.stream().filter(num->num%2==0).findFirst();
+        if(firstEvenNumber.isPresent()){
+            System.out.println("The first even number is: " + firstEvenNumber.get());
+        }
+        else {
+            System.out.println("No even numbers found.");
+        }
 
     }
 }

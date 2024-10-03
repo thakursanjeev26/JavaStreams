@@ -25,5 +25,8 @@ public class JavaStreamsDemo {
 
         System.out.println(doubleList);
 
+        List<Integer>evenNumbers=numbers.stream().filter(num->num%2==0).collect(Collectors.toList());
+        System.out.println("Even Numbers"+evenNumbers);
+
     }
 }

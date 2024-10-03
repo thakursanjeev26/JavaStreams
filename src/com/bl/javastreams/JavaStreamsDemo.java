@@ -2,6 +2,8 @@ package com.bl.javastreams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class JavaStreamsDemo {
     public static void main(String[] args) {
@@ -18,6 +20,9 @@ public class JavaStreamsDemo {
         numbers.add(9);
 
         numbers.stream().forEach(num-> System.out.println(num));
+
+        List<Double>doubleList=numbers.stream().map(num->num*2.0).collect(Collectors.toList());
+
 
     }
 }

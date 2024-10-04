@@ -87,6 +87,12 @@ public class JavaStreamsDemo {
         } else {
             System.out.println("No even numbers found.");
         }
+        List<Integer> sortedNumbers = numbers.stream()
+                .sorted() // Sorting in ascending order
+                .collect(Collectors.toList()); // Collecting into a new list
+
+        // Display the sorted numbers
+        System.out.println("Sorted numbers in ascending order: " + sortedNumbers);
 
     }
 }

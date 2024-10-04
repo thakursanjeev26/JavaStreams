@@ -35,14 +35,13 @@ public class JavaStreamsDemo {
             System.out.println("No even numbers found.");
         }
         Optional<Integer> minEvenNumber = numbers.stream()
-                .filter(num -> num % 2 == 0) // Filter even numbers
-                .min(Comparator.naturalOrder()); // Get the minimum even number
+                .filter(num -> num % 2 == 0)
+                .min(Comparator.naturalOrder());
 
 
         Optional<Integer> maxEvenNumber = numbers.stream()
-                .filter(num -> num % 2 == 0) // Filter even numbers
-                .max(Comparator.naturalOrder()); // Get the maximum even number
-
+                .filter(num -> num % 2 == 0)
+                .max(Comparator.naturalOrder());
 
         if (minEvenNumber.isPresent()) {
             System.out.println("The minimum even number is: " + minEvenNumber.get());
@@ -58,10 +57,10 @@ public class JavaStreamsDemo {
         }
 
         // Calculate the sum of the numbers
-        int sum = numbers.stream().mapToInt(Integer::intValue).sum(); // Using mapToInt to sum
+        int sum = numbers.stream().mapToInt(Integer::intValue).sum();
 
         // Calculate the average of the numbers
-        OptionalDouble average = numbers.stream().mapToInt(Integer::intValue).average(); // Using mapToInt to calculate average
+        OptionalDouble average = numbers.stream().mapToInt(Integer::intValue).average();
 
         // Display the sum
         System.out.println("The sum of the numbers is: " + sum);
@@ -71,6 +70,22 @@ public class JavaStreamsDemo {
             System.out.println("The average of the numbers is: " + average.getAsDouble());
         } else {
             System.out.println("No numbers found to calculate average.");
+        }
+        boolean allEven=numbers.stream().allMatch(num->num%2==0);
+
+        boolean anyEven=numbers.stream().anyMatch(num->num%2==0);
+
+        if (allEven) {
+            System.out.println("All numbers are even.");
+        } else {
+            System.out.println("Not all numbers are even.");
+        }
+
+        // Display the result for any even number
+        if (anyEven) {
+            System.out.println("At least one number is even.");
+        } else {
+            System.out.println("No even numbers found.");
         }
 
     }
